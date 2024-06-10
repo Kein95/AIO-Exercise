@@ -37,9 +37,9 @@ evaluate_classification_model(2, 4, 5)
 
 """2. Viết function mô phỏng theo 3 activation function."""
 
-def is_number ( n ) :
+def is_number ( x ) :
   try :
-    float ( n )
+    float ( x )
     return True
   except ValueError :
     return False
@@ -68,3 +68,82 @@ activation_function('abc', 'sigmoid')
 activation_function(1.5,'belu')
 
 activation_function(2, 'relu')
+
+"""3. Viết function lựa chọn regression loss function để tính loss"""
+
+import math
+import random
+
+def calculate_mae(predicts, targets):
+  return sum(abs(predict - target) for predict, target in zip(predicts, targets)) / len(predicts)
+
+def calculate_mse(predicts, targets):
+  return sum((predict - target) ** 2 for predict, target in zip(predicts, targets)) / len(predicts)
+
+def rmse(predictions, targets):
+  return math.sqrt(calculate_mse(predictions, targets))
+
+def calculate_loss(num_samples, loss_name):
+    # Người dùng nhập số lượng sample (num_samples) được tạo ra (chỉ nhận integer numbers)
+    if not str(num_samples).isdigit() or int(num_samples) <= 0:
+        print("number of samples must be an integer number")
+        return
+    #  Người dùng nhập loss name (MAE, MSE, RMSE-(optional)) chỉ cần MAE và MSE, bạn nào muốn làm thêm RMSE đều được.
+
+"""4. Viết 4 functions để ước lượng các hàm số sau."""
+
+# Tính giai thừa
+def factorial(n):
+    if n == 0:
+        return 1
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+
+factorial(3)
+
+# Tính sin, cos, sinh, cosh
+import math
+
+def sin(x, n):
+    result = 0
+    for i in range(n):
+        result += ((-1)**i) * (x**(2*i + 1)) / factorial(2*i + 1)
+    return result
+
+def cos(x, n):
+    result = 0
+    for i in range(n):
+        result += ((-1)**i) * (x**(2*i)) / factorial(2*i)
+    return result
+
+def sinh(x, n):
+    result = 0
+    for i in range(n):
+        result += (x**(2*i + 1)) / factorial(2*i + 1)
+    return result
+
+def cosh(x, n):
+    result = 0
+    for i in range(n):
+        result += (x**(2*i)) / factorial(2*i)
+    return result
+
+print(sin (x = 3.14, n = 10))
+print(cos (x = 3.14, n = 10))
+print(sinh (x = 3.14, n = 10))
+print(cosh (x = 3.14, n = 10))
+
+"""5. Viết function thực hiện Mean Difference"""
+
+def md_nre_single_calculate(y, y_hat, n, p):
+    _y = float(y)
+    _y_hat = float(y_hat)
+    _n = float(n)
+    _p = float(p)
+
+    md = (_y ** (1 / _n)) - (_y_hat ** (1 / _n)) ** _p
+    return print(md)
+
+md_nre_single_calculate(100,99.5,2,1)
