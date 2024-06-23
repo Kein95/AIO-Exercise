@@ -11,6 +11,6 @@ def count_words(file_path):
                     word_count[word] = 1
     return word_count
 
-file_path = r'Module 1/Week 2/P1_data.txt'
+file_path = r'D:\00 AIO\AIO GIT HUB\AIO-Exercise\Module 1\Week 2\P1_data.txt'
 word_counts = count_words(file_path)
 print(word_counts)

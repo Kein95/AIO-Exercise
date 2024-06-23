@@ -29,3 +29,8 @@ source = "yu"
 target = "you"
 distance = levenshtein_distance(source, target)
 print("Khoảng cách Levenshtein:", distance)
+
+source = "hola"
+target = "hello"
+distance = levenshtein_distance(source, target)
+print("Khoảng cách Levenshtein:", distance)
