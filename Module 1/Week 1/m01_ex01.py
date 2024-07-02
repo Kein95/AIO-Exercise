@@ -59,7 +59,7 @@ def activation_function(x, activation_name):
       return x if x>0 else 0.01 * (math.exp(x)-1)
     case _:
       print(f"{activation_name} is not supported")
-      return
+
 
 
 
@@ -83,11 +83,11 @@ def calculate_mse(predicts, targets):
 def rmse(predictions, targets):
   return math.sqrt(calculate_mse(predictions, targets))
 
-def calculate_loss(num_samples, loss_name):
+def calculate_loss(num_samples):
     # Người dùng nhập số lượng sample (num_samples) được tạo ra (chỉ nhận integer numbers)
     if not str(num_samples).isdigit() or int(num_samples) <= 0:
         print("number of samples must be an integer number")
-        return
+
     #  Người dùng nhập loss name (MAE, MSE, RMSE-(optional)) chỉ cần MAE và MSE, bạn nào muốn làm thêm RMSE đều được.
 
 """4. Viết 4 functions để ước lượng các hàm số sau."""
