@@ -12,7 +12,15 @@ arr = np.arange(0, 10, 1)
 arr
 
 import numpy as np
-arr = np.full((3 ,3), fill_value = True , dtype = bool )
+arr = np . ones ((3 ,3) ) > 0
+arr
+
+import numpy as np
+arr = np . ones ((3 ,3) , dtype = bool )
+arr
+
+import numpy as np
+arr = np . full ((3 ,3) , fill_value = True , dtype = bool )
 arr
 
 import numpy as np
