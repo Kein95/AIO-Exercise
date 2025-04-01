@@ -17,8 +17,6 @@ Download CelebBA dataset [drive](https://drive.google.com/file/d/1HaFKYFPtYWLzli
 # Tải file từ link Google Drive
 !gdown --id 1HaFKYFPtYWLzliwXdsXZZLzaTgFFB7_0 --output img_align_celeba.zip
 
-
-
 !unzip -q /content/img_align_celeba.zip -d /content/img_align_celeba
 
 import os
@@ -1040,7 +1038,8 @@ class InpaintingGaussianDiffusion(nn.Module):
 
         y_t = y_t if y_t is not None else torch.randn_like(y_cond)
         ret_arr = y_t
-        for i in reversed(range(0, self.num_timesteps)):
+        from tqdm.notebook import tqdm
+        for i in tqdm(reversed(range(0, self.num_timesteps)), desc="Sampling", total=self.num_timesteps):
             t = torch.full((b,), i, device=y_cond.device, dtype=torch.long)
             y_t = self.p_sample(y_t, t, y_cond=y_cond)
             if mask is not None:
